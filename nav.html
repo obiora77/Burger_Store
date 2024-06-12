@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Burgger Menu</title>
+   <link rel="shortcut icon" href="burger2.jpeg">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'popins', Arial, sans-serif;
+   }
+
+   body {
+      background: rgb(248, 212, 218);
+   }
+
+   nav {
+         background: rgb(248, 212, 218);
+         color: #333;
+         padding: 10px 20px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         position: sticky;
+         width: 100%;
+         top: 0;
+         z-index: 1000000;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+         text-transform: uppercase;
+         font-weight: 800;
+      }
+
+      nav .nav-links {
+         display: flex;
+         gap: 20px;
+      }
+
+      nav .nav-links a {
+         color: #333;
+         text-decoration: none;
+         padding: 5px 10px;
+         transition: background 0.3s;
+      }
+
+      nav .nav-links a:hover {
+         background: #555;
+         color: #eee;
+         border-radius: 5px;
+      }
+
+      .menu-bar {
+         display: none;
+         cursor: pointer;
+      }
+
+      .show {
+         right: 20px;
+      }
+
+      .bi-x-lg,
+      .bi-list {
+         font-size: 30px;
+      }
+
+      .container {
+         display: none;
+      }
+
+      @media (max-width: 768px) {
+         nav .nav-links {
+            position: absolute;
+            top: 55px;
+            left: -100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.75);
+            padding: 60px 60px;
+            border-radius: 10px;
+            width: 99vw;
+            transition: all 1.3s;
+         }
+
+         nav .nav-links a {
+            color: #eee;
+         }
+         nav .nav-links.show {
+            left: 0;
+         }
+
+         nav .menu-bar {
+            display: block;
+         }
+
+         .bi-x-lg {
+            display: none;
+         }
+
+         .container {
+            display: block;
+            position: relative;
+         }
+
+         .container input {
+            height: 30px;
+            width: 0;
+            outline: none;
+            padding: 0 20px;
+            color: black;
+            font-size: 20px;
+            box-sizing: border-box;
+            border: 1px solid tomato;
+            border-radius: 50px;
+            transition: all 0.7s ease;
+            position: relative;
+            left: 40px;
+         }
+
+         .container .btn {
+            position: absolute;
+            left: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+         }
+
+         .container .btn i {
+            font-size: 20px;
+            line-height: 30px;
+            color: #fff;
+            transition: all 1s ease;
+         }
+
+         .container:hover input {
+            width: 150px;
+         }
+
+         .container:hover i {
+            transform: rotate(-350deg);
+         }
+      }
+
+
+</style>
+<body>
+
+    <nav>
+      <label class="logo">Burgger Store</label>
+      <div class="nav-links" id="nav-link">
+         <a href="#">Home</a>
+         <a href="#">Menu</a>
+         <a href="#">About</a>
+         <a href="#">Contact</a>
+      </div>
+      
+      <div class="container">
+         <input type="text" placeholder="search...">
+         <div class="btn">
+            <i class="bi bi-search"></i>
+         </div>
+      </div>
+
+      <div class="menu-bar" id="menu-icon">
+         <i class="bi bi-list"></i>
+         <i class="bi bi-x-lg"></i>
+     </div>
+   </nav>
+   
+
+   <script>
+
+      const menuicon = document.getElementById('menu-icon')
+      const navLinks = document.getElementById('nav-link')
+
+      menuicon.addEventListener('click', () => {
+         navLinks.classList.toggle('show')
+
+         const listIcon = document.querySelector('.bi-list');
+         const closeIcon = document.querySelector('.bi-x-lg');
+         if (navLinks.classList.contains('show')) {
+            listIcon.style.display = 'none';
+            closeIcon.style.display = 'block';
+         } else {
+            listIcon.style.display = 'block';
+            closeIcon.style.display = 'none';
+         }
+      })
+   </script>
+</body>
+</html>
+
+<div class="burgger-hand">
+   <div class="burgger-menu">
+      <div class="burgger">
+         <img src="burger.jpeg" alt="">
+         <h2> Cheese Burger</h2>
+         <div class="hand-burgger">
+            <div class="extra-info">
+               <p>Best Burger Ever Recipe</p>
+               <p>Best Burger Ever Recipe</p>
+               <p>Best Burger Ever Recipe</p><br>
+               <button>see more</button>
+            </div>
+         </div>              
+      </div>
+   </div>
+
+   .burgger-hand {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      flex-wrap: wrap;
+   }
+
+.burgger-menu {
+   z-index: 1;
+   border-radius: 10px;
+   background: #eee;
+   width: 15.7vw;
+   height: 40vh;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: all 0.5s;
+   position: relative;
+}
+
+
+.burgger-menu:hover img {
+      animation: rotate 2s linear infinite;
+   }
+.burgger{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   /* line-height: 30px; */
+   cursor: pointer;
+   padding-top: 10px;
+   transition: all .5s;
+}
+.burgger img {
+   height: 150px;
+   width: 150px;
+   border-radius: 50%;
+   border: 2px solid gray;
+   transition: all 1s;
+   transition-property: all;
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   z-index: 2;
+} 
+
+@keyframes rotate {
+      from {
+         transform: rotate(0deg);
+      }
+      to {
+         transform: rotate(360deg);
+      }
+   }
+
+.hand-burgger {
+   align-items: center;
+   display: flex;
+   flex-direction: column;
+   height: auto;
+   max-height: 0px;
+   /* overflow: hidden; */
+ }
+
+.hand-burgger p {
+font-size: 12px;
+}
+button {
+   padding: 10px 40px;
+   background: #000;
+   color: #eee;
+   font-size: 16px;
+   border: none;
+   cursor: pointer;
+   border-radius: 5px;
+}
+
+.burgger:hover {
+   transform: translateY(-70px);
+}
+.burgger:hover .hand-burgger {
+   opacity: 1;
+}
+
+with this code this give hand-burgger overflow hidden so that when i hover it will be displaying from inside the 
+burgger-menu 
